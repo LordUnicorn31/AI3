@@ -98,7 +98,7 @@ public class GameRun : MonoBehaviour
    	  	// Determine label of the character, return it
    	  	int label = 0;
    	  	if(chars[idx].name.StartsWith("frog")) label = 1;
-   	  	else if(chars[idx].name.StartsWith("opposum")) label = 2;
+   	  	else if(chars[idx].name.StartsWith("opossum")) label = 2;
 
     	return label;
     } 
@@ -149,10 +149,13 @@ public class GameRun : MonoBehaviour
 
 
 
-	        ///////////////////////////////////////
-	        // Compute reward
-	        ///////////////////////////////////////
-	        float reward = ComputeReward(deck, action);
+            ///////////////////////////////////////
+            // Compute reward
+            ///////////////////////////////////////
+
+            // Our deck is now the array of agent.myCards (it counts how many cards of each class it has)
+            int[] countedDeck = agent.GetMyCards();
+	        float reward = ComputeReward(countedDeck, action);
 	        
 	        Debug.Log("Turn/reward: " + turn.ToString() + "->" + reward.ToString());
 

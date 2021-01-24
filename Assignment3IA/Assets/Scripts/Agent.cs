@@ -215,6 +215,10 @@ public class Agent : MonoBehaviour
     	return state;
     }
 
+    public int [] GetMyCards()
+    {
+        return myCards;
+    }
 
     private int ChooseAction()
     {
